@@ -13,3 +13,11 @@ def cipher(text, shift_amount):
 def decipher(text, shift_amount):
     return 'asdf'  # 띄어쓰기 합치고 unshift
 
+if __name__ == '__main__':
+    original_text = get_original_text()
+    shift_amount = get_shift_amount()
+    text_letter_only = remove_nonletters(original_text)
+    cipher_text = cipher(text_letter_only, shift_amount)
+    print(f'cipher_text={cipher_text}')
+    decipher_text = decipher(cipher_text, shift_amount)
+    print(f'decipher_text={decipher_text}')
