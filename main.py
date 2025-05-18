@@ -1,11 +1,38 @@
-def get_original_text():
-    return 'as df'  # 파일로부터 text 받기
+import re
+import argparse
+
+def get_original_text(filename='input.txt'):
+    # try:
+    #     with open(filename, 'r', encoding='utf-8') as file:
+    #         return file.read()
+    # except FileNotFoundError:
+    #     print(f"{filename} not found")
+    #     return None 
+    return 'ab sd'
 
 def get_shift_amount():
-    return 1  # argparse로 shift 받기
+    # parser = argparse.ArgumentParser(description="Caesar Cipher Encryption/Decryption Program.")
+    # parser.add_argument(
+    #     '--shift',
+    #     type=int,     
+    #     required=True,  
+    #     help="The shift amount for the Caesar cipher (an integer)"
+    # )
+
+    # parser.add_argument(
+    #     '--file',
+    #     type=str,       
+    #     required=True,  
+    #     help="Path to the input file containing the original text"
+    # )
+
+    # args = parser.parse_args()
+
+    # return args.shift, args.file
+    return 1
 
 def remove_nonletters(input_text):
-    return 'asdf'  # 알파벳만 남기기
+    return re.sub(r'[^A-Za-z]', '', input_text)
 
 def cipher(text, shift_amount):
     result = []
