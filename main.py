@@ -18,8 +18,8 @@ def cipher(text, shift_amount):
             shifted = chr((ord(char) - ord("A") + shift_amount) % 26 + ord("A"))
             result.append(shifted)
 
-    groups = ["".join(result[i:i+5]) for i in range(0, len(result), 5)]
-    return " ".join(groups)
+    result = ["".join(result[i:i+5]) for i in range(0, len(result), 5)]
+    return " ".join(result)
 
 def decipher(text, shift_amount):
     text_nospace = text.replace(" ","")
