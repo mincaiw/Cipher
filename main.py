@@ -8,9 +8,20 @@ def remove_nonletters(input_text):
     return 'asdf'  # 알파벳만 남기기
 
 def cipher(text, shift_amount):
-    return 'zxcv'  # shift하고 5글자마다 띄우기
+    result = []
+    for char in text:
+        if "a" <= char <= "z":
+            shifted = chr((ord(char) - ord("a") + shift_amount) % 26 + ord("a"))
+            result.append(shifted)
+        elif "A" <= char <= "Z":
+            shifted = chr((ord(char) - ord("A") + shift_amount) % 26 + ord("A"))
+            result.append(shifted)
+
+    groups = ["".join(result[i:i+5]) for i in range(0, len(result), 5)]
+    return " ".join(groups)
 
 def decipher(text, shift_amount):
+    
     return 'asdf'  # 띄어쓰기 합치고 unshift
 
 if __name__ == '__main__':
