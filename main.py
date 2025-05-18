@@ -9,6 +9,7 @@ def remove_nonletters(input_text):
 
 def cipher(text, shift_amount):
     result = []
+
     for char in text:
         if "a" <= char <= "z":
             shifted = chr((ord(char) - ord("a") + shift_amount) % 26 + ord("a"))
@@ -21,8 +22,18 @@ def cipher(text, shift_amount):
     return " ".join(groups)
 
 def decipher(text, shift_amount):
-    
-    return 'asdf'  # 띄어쓰기 합치고 unshift
+    text_nospace = text.replace(" ","")
+    result = []
+
+    for char in text_nospace:
+        if "a" <= char <= "z":
+            shifted = chr((ord(char) - ord("a") - shift_amount) % 26 + ord("a"))
+            result.append(shifted)
+        elif "A" <= char <= "Z":
+            shifted = chr((ord(char) - ord("A") - shift_amount) % 26 + ord("A"))
+            result.append(shifted)
+
+    return "".join(result)
 
 if __name__ == '__main__':
     original_text = get_original_text()
